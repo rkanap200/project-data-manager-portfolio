@@ -1,0 +1,60 @@
+{
+  "form": "LB",
+  "title": "Laboratory Assessments",
+  "fields": [
+    {
+      "name": "STUDYID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SUBJID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "VISIT",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "LBDTC",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "LBTEST",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "LBORRES",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "LBLNRLO",
+      "type": "number"
+    },
+    {
+      "name": "LBLNRHI",
+      "type": "number"
+    },
+    {
+      "name": "LBFLAGH",
+      "type": "string",
+      "enum": [
+        "",
+        "H"
+      ]
+    },
+    {
+      "name": "LBFLAGL",
+      "type": "string",
+      "enum": [
+        "",
+        "L"
+      ]
+    }
+  ]
+}

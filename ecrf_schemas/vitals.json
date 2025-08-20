@@ -1,0 +1,56 @@
+{
+  "form": "VS",
+  "title": "Vital Signs",
+  "fields": [
+    {
+      "name": "STUDYID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SUBJID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "VISIT",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "VSDTC",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "HR",
+      "type": "integer",
+      "min": 30,
+      "max": 200
+    },
+    {
+      "name": "SBP",
+      "type": "integer",
+      "min": 60,
+      "max": 240
+    },
+    {
+      "name": "DBP",
+      "type": "integer",
+      "min": 30,
+      "max": 150
+    },
+    {
+      "name": "WEIGHT_KG",
+      "type": "number",
+      "min": 20,
+      "max": 300
+    },
+    {
+      "name": "HEIGHT_CM",
+      "type": "number",
+      "min": 100,
+      "max": 230
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "form": "SV",
+  "title": "Scheduled Visits",
+  "fields": [
+    {
+      "name": "STUDYID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SUBJID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "VISIT",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "VISITDT",
+      "type": "date",
+      "required": true
+    }
+  ]
+}

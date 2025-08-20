@@ -1,0 +1,56 @@
+{
+  "form": "AE",
+  "title": "Adverse Events",
+  "fields": [
+    {
+      "name": "STUDYID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SUBJID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "AEDECOD",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "AESTDTC",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "AEENDTC",
+      "type": "date"
+    },
+    {
+      "name": "AESEV",
+      "type": "string",
+      "enum": [
+        "MILD",
+        "MOD",
+        "SEV"
+      ]
+    },
+    {
+      "name": "AEREL",
+      "type": "string",
+      "enum": [
+        "UNLIKELY",
+        "POSSIBLE",
+        "PROBABLE"
+      ]
+    },
+    {
+      "name": "AESER",
+      "type": "string",
+      "enum": [
+        "Y",
+        "N"
+      ]
+    }
+  ]
+}

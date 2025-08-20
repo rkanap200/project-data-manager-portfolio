@@ -1,0 +1,46 @@
+{
+  "form": "QRY",
+  "title": "Data Queries",
+  "fields": [
+    {
+      "name": "STUDYID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SUBJID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "DOMAIN",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "RECORD_KEY",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "QUERY_TEXT",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "STATUS",
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "ANSWERED",
+        "CLOSED"
+      ],
+      "required": true
+    },
+    {
+      "name": "CREATED",
+      "type": "date",
+      "required": true
+    }
+  ]
+}

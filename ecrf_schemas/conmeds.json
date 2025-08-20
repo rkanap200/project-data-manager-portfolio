@@ -1,0 +1,37 @@
+{
+  "form": "CM",
+  "title": "Concomitant Medications",
+  "fields": [
+    {
+      "name": "STUDYID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SUBJID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CMTRT",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "CMINDC",
+      "type": "string"
+    },
+    {
+      "name": "CMSTDTC",
+      "type": "date"
+    },
+    {
+      "name": "CMONGO",
+      "type": "string",
+      "enum": [
+        "Y",
+        "N"
+      ]
+    }
+  ]
+}

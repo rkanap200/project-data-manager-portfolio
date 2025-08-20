@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Concomitant Medications</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }
+    .card { max-width: 900px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);}
+    h1 { font-size: 1.5rem; margin: 0 0 16px; }
+    label { display:block; margin: 12px 0 4px; font-weight: 600; }
+    input, select { width:100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; }
+    .row { display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .actions { margin-top: 16px; display:flex; gap:12px; }
+    button { padding:10px 14px; border-radius: 8px; border: 0; cursor: pointer; }
+    .primary { background:#111827; color:white; }
+    .secondary { background:#f3f4f6; }
+    .note { color:#6b7280; font-size: 0.9rem; }
+    .saved { background:#ecfdf5; border:1px solid #10b981; padding:8px 12px; border-radius:8px; margin-top:12px; display:none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Concomitant Medications (Form: CM)</h1>
+    <p class="note">This demo form saves submissions to your browser only (localStorage). No server is used.</p>
+    <form id="crf"></form>
+    <div class="actions">
+      <button type="button" class="primary" onclick="save()">Save to Browser</button>
+      <button type="button" class="secondary" onclick="download()">Download JSON</button>
+      <button type="button" class="secondary" onclick="clearData()">Clear Saved</button>
+    </div>
+    <div id="saved" class="saved">Saved! Check your browser's localStorage.</div>
+  </div>
+  <script>
+    const schema = {"form":"CM","title":"Concomitant Medications","fields":[{"name":"STUDYID","type":"string","required":true},{"name":"SUBJID","type":"string","required":true},{"name":"CMTRT","type":"string","required":true},{"name":"CMINDC","type":"string"},{"name":"CMSTDTC","type":"date"},{"name":"CMONGO","type":"string","enum":["Y","N"]}]};
+    const form = document.getElementById('crf');
+    const key = 'ecrf_' + schema.form;
+
+    function render() {
+      const grid = document.createElement('div');
+      grid.className = 'row';
+      schema.fields.forEach(f => {
+        const wrap = document.createElement('div');
+        const label = document.createElement('label');
+        label.textContent = f.name + (f.required ? ' *' : '');
+        let input;
+        if (f.enum) {
+          input = document.createElement('select');
+          f.enum.forEach(opt => {
+            const o = document.createElement('option');
+            o.value = opt; o.textContent = opt;
+            input.appendChild(o);
+          });
+        } else {
+          input = document.createElement('input');
+          input.type = f.type === 'integer' || f.type === 'number' ? 'number' : (f.type === 'date' ? 'date' : 'text');
+          if (f.min !== undefined) input.min = f.min;
+          if (f.max !== undefined) input.max = f.max;
+          if (f.step !== undefined) input.step = f.step;
+        }
+        input.name = f.name;
+        if (f.required) input.required = true;
+        wrap.appendChild(label);
+        wrap.appendChild(input);
+        grid.appendChild(wrap);
+      });
+      form.appendChild(grid);
+      // load saved
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          [...form.elements].forEach(el => { if (data[el.name] !== undefined) el.value = data[el.name]; });
+        } catch(e) {}
+      }
+    }
+
+    function save() {
+      const data = {};
+      [...form.elements].forEach(el => { if (el.name) data[el.name] = el.value; });
+      localStorage.setItem(key, JSON.stringify(data));
+      document.getElementById('saved').style.display = 'block';
+      setTimeout(()=>document.getElementById('saved').style.display='none', 1500);
+    }
+
+    function download() {
+      const data = localStorage.getItem(key) || '{}';
+      const blob = new Blob([data], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = schema.form + '_entry.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function clearData() {
+      localStorage.removeItem(key);
+      [...form.elements].forEach(el => { if (el.name) el.value = ''; });
+    }
+
+    render();
+  </script>
+</body>
+</html>

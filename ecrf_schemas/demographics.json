@@ -1,0 +1,51 @@
+{
+  "form": "DM",
+  "title": "Demographics",
+  "fields": [
+    {
+      "name": "STUDYID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SITEID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "SUBJID",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "ARM",
+      "type": "string",
+      "enum": [
+        "A",
+        "B"
+      ],
+      "required": true
+    },
+    {
+      "name": "SEX",
+      "type": "string",
+      "enum": [
+        "M",
+        "F"
+      ],
+      "required": true
+    },
+    {
+      "name": "AGE",
+      "type": "integer",
+      "min": 18,
+      "max": 90,
+      "required": true
+    },
+    {
+      "name": "ICF_DATE",
+      "type": "date",
+      "required": true
+    }
+  ]
+}
