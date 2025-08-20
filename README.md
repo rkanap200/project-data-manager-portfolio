@@ -1,3 +1,16 @@
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](<YOUR_STREAMLIT_URL>)
+
+## Live Demo
+- Dashboards (Streamlit): <project-data-manager-portfolio-nygbtjk8t4w8fspewwgxct.streamlit.app>
+- Landing Page (GitHub Pages): https://rkanap200.github.io/project-data-manager-portfolio/
+- eCRFs (direct links):
+  - DM: https://rkanap200.github.io/project-data-manager-portfolio/ecrfs_html/DM.html
+  - SV: https://rkanap200.github.io/project-data-manager-portfolio/ecrfs_html/SV.html
+  - VS: https://rkanap200.github.io/project-data-manager-portfolio/ecrfs_html/VS.html
+  - AE: https://rkanap200.github.io/project-data-manager-portfolio/ecrfs_html/AE.html
+  - CM: https://rkanap200.github.io/project-data-manager-portfolio/ecrfs_html/CM.html
+  - LB: https://rkanap200.github.io/project-data-manager-portfolio/ecrfs_html/LB.html
+  - QRY: https://rkanap200.github.io/project-data-manager-portfolio/ecrfs_html/QRY.html
 # Clinical Portfolio Sample (eCRFs + Dashboards)
 
 This repo showcases a miniature clinical data management portfolio:
