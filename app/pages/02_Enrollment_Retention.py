@@ -15,9 +15,12 @@ enr_time = visits_f[visits_f["VISIT"] == "BASELINE"].groupby(visits_f["VISITDT"]
 enr_time.index = enr_time.index.to_timestamp()
 st.line_chart(enr_time)
 
-# Screening vs Baseline by Site  ✅ FIX: merge SITEID from DM
+# Screening vs Baseline by Site
 st.subheader("Screening vs Baseline Counts by Site")
+
+# 🔑 FIX: add SITEID from demographics (dm)
 dm_map = dm[["SUBJID", "SITEID"]].drop_duplicates()
 vf = visits_f.merge(dm_map, on="SUBJID", how="left")
+
 counts = vf[vf["VISIT"].isin(["SCREEN", "BASELINE"])].groupby(["SITEID", "VISIT"]).size().reset_index(name="N")
 st.bar_chart(counts, x="SITEID", y="N", color="VISIT")
